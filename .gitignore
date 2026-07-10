@@ -29,3 +29,17 @@ __pycache__/
 node_modules/
 dist/
 build/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# React
+node_modules/
+dist/
+.env.production
+
+# VS Code
+.vscode/

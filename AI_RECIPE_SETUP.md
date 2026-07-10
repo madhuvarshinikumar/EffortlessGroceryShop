@@ -109,7 +109,7 @@ cd d:\Effortless_shop
 python -m uvicorn app.main:app --reload
 ```
 
-Backend will be available at: `http://localhost:8000`
+Backend will be available at: `https://effortlessgroceryshop.onrender.com`
 
 ### Step 6: Run Frontend
 
