@@ -5,27 +5,6 @@ A modern full-stack grocery e-commerce platform built using React, FastAPI, and 
 
 ---
 
-# Table of Contents
-
-* Overview
-* Key Features
-* System Architecture
-* Technology Stack
-* Project Structure
-* Installation
-* Environment Variables
-* Running the Application
-* API Documentation
-* Database Design
-* AI Recipe Recommendation
-* Future Enhancements
-* Screenshots
-* Contributing
-* License
-* Author
-
----
-
 # Overview
 
 Effortless Grocery Shop is designed to simplify the grocery shopping experience by enabling customers to browse products, manage shopping carts, place orders, and receive personalized recipe suggestions.
@@ -163,74 +142,7 @@ EffortlessGroceryShop/
 
 ---
 
-# Installation
 
-## Clone the Repository
-
-```bash
-git clone https://github.com/USERNAME/EffortlessGroceryShop.git
-cd EffortlessGroceryShop
-```
-
----
-
-## Backend Setup
-
-Create a virtual environment.
-
-```bash
-python -m venv venv
-```
-
-Activate the environment.
-
-Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Linux / macOS
-
-```bash
-source venv/bin/activate
-```
-
-Install dependencies.
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the backend server.
-
-```bash
-uvicorn main:app --reload
-```
-
----
-
-## Frontend Setup
-
-Navigate to the frontend folder.
-
-```bash
-cd frontend
-```
-
-Install packages.
-
-```bash
-npm install
-```
-
-Run the development server.
-
-```bash
-npm run dev
-```
-
----
 
 # Environment Variables
 
