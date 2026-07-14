@@ -324,27 +324,3 @@ Capabilities include:
 * Multi-language Support
 
 ---
-
-# Screenshots
-
-
-
----
-
-
-
-# License
-
-This project is intended for educational and learning purposes.
-
----
-
-# Author
-
-**Madhuvarshini Kumar**
-
-Bachelor of Technology – Computer Science and Engineering
-
-Passionate about Full-Stack Development, Artificial Intelligence, and Software Engineering.
-
-GitHub: https://github.com/YOUR_USERNAME
