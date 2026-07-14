@@ -309,18 +309,3 @@ Capabilities include:
 
 ---
 
-# Future Enhancements
-
-* Online Payment Gateway
-* Wishlist
-* Product Reviews and Ratings
-* Admin Dashboard
-* Inventory Management
-* Email Notifications
-* Discount Coupons
-* Delivery Tracking
-* Product Recommendation System
-* Dark Mode
-* Multi-language Support
-
----
