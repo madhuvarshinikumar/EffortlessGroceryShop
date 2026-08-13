@@ -63,18 +63,7 @@ The project follows a **client-server architecture**, where the React frontend c
 # System Architecture
 
 ```
-                    React Frontend
-                           │
-                    Axios REST API
-                           │
-                     FastAPI Backend
-        ┌──────────────┼──────────────┐
-        │              │              │
- Authentication    Business Logic   AI Service
-        │              │              │
-        └──────────────┼──────────────┘
-                       │
-                  PostgreSQL Database
+        ![Home Page](image.png)
 ```
 
 ---
