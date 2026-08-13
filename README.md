@@ -63,7 +63,7 @@ The project follows a **client-server architecture**, where the React frontend c
 # System Architecture
 
 ```
-        ![Home Page](image.png)
+        ![Effortless Grocery Shop](Image.png)
 ```
 
 ---
