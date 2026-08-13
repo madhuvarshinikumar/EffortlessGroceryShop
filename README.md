@@ -59,12 +59,9 @@ The project follows a **client-server architecture**, where the React frontend c
 * Mobile Friendly Interface
 
 ---
-
 # System Architecture
 
-```
-        ![Effortless Grocery Shop](Image.png)
-```
+![Effortless Grocery Shop](Image.png)
 
 ---
 
