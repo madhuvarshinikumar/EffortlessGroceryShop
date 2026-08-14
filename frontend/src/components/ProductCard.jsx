@@ -36,7 +36,7 @@ function ProductCard({ product, onAddToCart, onViewDetails }) {
         <h3 className="product-name">{product.name}</h3>
         
         <div className="product-quantity">
-          <span className="quantity-label">{product.quantity || '500ml'}</span>
+          
         </div>
 
         <div className="product-price-section">

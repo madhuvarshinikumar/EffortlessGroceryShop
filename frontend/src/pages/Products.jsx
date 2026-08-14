@@ -174,8 +174,7 @@ function Products() {
               <p>{product.description || "Fresh grocery item"}</p>
 
               <div className="price-row">
-                <h2>₹{product.price.toFixed(2)}</h2>
-                <span>Stock: {product.quantity}</span>
+              <h2>₹{product.price.toFixed(2)}</h2>
               </div>
 
               {/* Quantity Controls */}
