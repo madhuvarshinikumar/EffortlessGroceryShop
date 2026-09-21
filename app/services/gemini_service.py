@@ -2,7 +2,7 @@ import os
 import json
 
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
 
 load_dotenv()
 
@@ -15,9 +15,9 @@ class GeminiRecipeService:
         if not api_key:
             raise ValueError("GEMINI_API_KEY environment variable not set")
 
-        genai.configure(api_key=api_key)
+        self.client = genai.Client(api_key=api_key)
 
-        self.model = genai.GenerativeModel("gemini-2.5-flash")
+        self.model = "gemini-2.5-flash"
 
         self.available_products = {
             "Rice",
@@ -70,7 +70,10 @@ Return ONLY valid JSON:
 }}
 """
 
-        response = self.model.generate_content(prompt)
+        response = self.client.models.generate_content(
+            model=self.model,
+            contents=prompt
+        )
 
         response_text = response.text.strip()
 
@@ -112,6 +115,8 @@ Return ONLY valid JSON:
                         "available_quantity": product["quantity"],
                         "in_stock": product["quantity"] > 0
                     })
+
+                    break
 
         return matched_products
 
