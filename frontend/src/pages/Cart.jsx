@@ -448,7 +448,7 @@ function Cart() {
 
             <div className="savings-info">
               <span className="savings-icon">
-                💰
+                
               </span>
 
               <p>

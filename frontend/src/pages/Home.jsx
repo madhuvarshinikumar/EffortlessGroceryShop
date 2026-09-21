@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api";
@@ -5,12 +6,12 @@ import { toast } from "react-hot-toast";
 import "./Home.css";
 
 const categoryTiles = [
-  { label: "Fruits", icon: "🍎" },
-  { label: "Vegetables", icon: "🥦" },
-  { label: "Dairy", icon: "🥛" },
-  { label: "Pantry", icon: "🥫" },
-  { label: "Bakery", icon: "🥐" },
-  { label: "Snacks", icon: "🍪" },
+  { label: "Fruits", description: "Fresh & organic products" },
+  { label: "Vegetables", description: "Fresh & organic products" },
+  { label: "Dairy", description: "Fresh & organic products" },
+  { label: "Pantry", description: "Fresh & organic products" },
+  { label: "Bakery", description: "Fresh & organic products" },
+  { label: "Snacks", description: "Fresh & organic products" },
 ];
 
 function Home() {
@@ -47,107 +48,134 @@ function Home() {
   const trending = products.slice(4, 10);
 
   return (
-    <div className="page-shell">
-      {/* HERO SECTION */}
+    <div className="home-page">
 
-      <section className="hero-card">
-        <div className="hero-copy">
-          <p className="eyebrow">Fresh groceries delivered in minutes</p>
+      {/* HERO */}
+      <section className="home-hero">
+
+        <div className="home-hero-content">
+
+          <div className="home-badge">
+            Fresh groceries delivered in minutes
+          </div>
 
           <h1>
             Fresh food for your
             <span> everyday life.</span>
           </h1>
 
-          <p className="hero-text">
+          <p>
             Order premium fruits, vegetables, dairy, bakery items and more —
             delivered fast with a beautiful shopping experience.
           </p>
 
-          <div className="hero-actions">
+          <div className="home-buttons">
+
             <button onClick={() => navigate("/products")}>
               Shop Now
             </button>
 
             <button
-              className="secondary-button"
+              className="home-secondary-btn"
               onClick={() => navigate("/recipes")}
             >
               Explore Recipes
             </button>
+
           </div>
+
         </div>
 
-        <div className="hero-image">
-  <img
-    src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
-    alt="Fresh groceries"
-  />
-</div>
+        <div className="home-hero-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
+            alt="Fresh groceries"
+          />
+
+        </div>
+
       </section>
 
-      {/* CATEGORY SECTION */}
 
-      <section className="section-block">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">Browse Categories</p>
-            <h2>Shop by collection</h2>
-          </div>
+      {/* CATEGORIES */}
+      <section className="home-section">
 
-          <button
-            className="secondary-outline"
-            onClick={() => navigate("/products")}
-          >
-            View All
-          </button>
+        <div className="home-section-title">
+
+          <h2>
+            Shop by collection
+          </h2>
+
+          <p>
+            Browse our grocery categories
+          </p>
+
         </div>
 
-        <div className="category-grid">
+        <div className="home-categories-grid">
+
           {categoryTiles.map((category) => (
-            <div key={category.label} className="category-card">
-              <div className="category-icon">
-                {category.icon}
-              </div>
 
-              <h3>{category.label}</h3>
+            <div
+              key={category.label}
+              className="home-category-card"
+            >
 
-              <p>Fresh & organic products</p>
+              <p>
+                {category.label}
+              </p>
+
+              <small>
+                {category.description}
+              </small>
+
             </div>
+
           ))}
+
         </div>
+
       </section>
+
 
       {/* FEATURED PRODUCTS */}
+      <section className="home-section">
 
-      <section className="section-block">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">Featured Products</p>
-            <h2>Chef's picks for today</h2>
-          </div>
+        <div className="home-section-title">
 
-          <button
-            className="secondary-outline"
-            onClick={() => navigate("/products")}
-          >
-            See All
-          </button>
+          <h2>
+            Chef's picks for today
+          </h2>
+
+          <p>
+            Fresh products selected for you
+          </p>
+
         </div>
 
-        <div className="featured-grid">
+        <div className="home-products-grid">
+
           {loading ? (
-            <div className="spinner-container">
-              <div className="spinner"></div>
-            </div>
+
+            <p>
+              Loading products...
+            </p>
+
           ) : featured.length ? (
+
             featured.map((product) => (
+
               <div
                 key={product.id}
-                className="featured-card"
-                onClick={() => navigate(`/products/${product.id}`)}
+                className="home-product-card"
+                onClick={() =>
+                  navigate(`/products/${product.id}`)
+                }
               >
-                <div className="featured-image">
+
+                <div className="home-product-image">
+
                   <img
                     src={
                       product.image_url ||
@@ -160,73 +188,71 @@ function Home() {
                     }}
                   />
 
-                  <span className="badge">
-                    Fresh
-                  </span>
                 </div>
 
-                <div className="featured-copy">
-                  <h3>{product.name}</h3>
+                <div className="home-product-content">
 
-                  <p className="small-text">
+                  <h3>
+                    {product.name}
+                  </h3>
+
+                  <p>
                     {product.description ||
                       "Premium grocery item"}
                   </p>
 
-                  <div className="price-row">
-                    <strong>
-                      ₹ {product.price}
-                    </strong>
-
-                    <button>Add</button>
+                  <div className="home-price">
+                    ₹ {product.price}
                   </div>
+
                 </div>
+
               </div>
+
             ))
+
           ) : (
-            <p>No products found.</p>
-          )}
-        </div>
-      </section>
-
-      {/* OFFER SECTION */}
-
-      <section className="offer-section">
-        <div className="offer-card">
-          <div>
-            <p className="eyebrow">Special Offer</p>
-
-            <h2>Save 15% on your first order</h2>
 
             <p>
-              Use code <strong>FRESH15</strong> at checkout.
+              No products found.
             </p>
-          </div>
 
-          <button onClick={() => navigate("/checkout")}>
-            Apply Coupon
-          </button>
+          )}
+
         </div>
+
       </section>
 
-      {/* TRENDING */}
 
-      <section className="section-block">
-        <div className="section-head">
-          <div>
-            <p className="eyebrow">Trending Now</p>
-            <h2>Popular picks</h2>
-          </div>
+      {/* TRENDING */}
+      <section className="home-section">
+
+        <div className="home-section-title">
+
+          <h2>
+            Popular picks
+          </h2>
+
+          <p>
+            Trending products customers love
+          </p>
+
         </div>
 
-        <div className="trending-grid">
+        <div className="home-products-grid">
+
           {trending.map((product) => (
+
             <div
               key={product.id}
-              className="trending-card"
-              onClick={() => navigate(`/products/${product.id}`)}
+              className="home-product-card"
+              onClick={() =>
+                navigate(`/products/${product.id}`)
+              }
             >
-              <div className="trending-image">
+
+              <div className="home-product-image">
+
                 <img
                   src={
                     product.image_url ||
@@ -234,36 +260,64 @@ function Home() {
                   }
                   alt={product.name}
                 />
+
               </div>
 
-              <div className="trending-copy">
-                <h3>{product.name}</h3>
+              <div className="home-product-content">
 
-                <p>₹ {product.price}</p>
+                <h3>
+                  {product.name}
+                </h3>
+
+                <div className="home-price">
+                  ₹ {product.price}
+                </div>
+
               </div>
+
             </div>
+
           ))}
+
         </div>
+
       </section>
 
-      {/* FOOTER */}
 
+      {/* FOOTER */}
       <footer className="home-footer">
+
         <div>
-          <h3>FreshMart</h3>
+
+          <h3>
+            FreshMart
+          </h3>
 
           <p>
-            Fresh groceries, fast delivery, and a premium shopping
-            experience.
+            Fresh groceries, fast delivery, and a premium
+            shopping experience.
           </p>
+
         </div>
 
-        <div className="footer-links">
-          <a href="/products">Products</a>
-          <a href="/recipes">Recipes</a>
-          <a href="/cart">Cart</a>
+        <div className="home-footer-links">
+
+          <a href="/products">
+            Products
+          </a>
+
+          <a href="/recipes">
+            Recipes
+          </a>
+
+          <a href="/cart">
+            Cart
+          </a>
+
         </div>
+
       </footer>
+
     </div>
   );
 }
